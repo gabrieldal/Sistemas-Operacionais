@@ -30,8 +30,8 @@ def multicore( numIterations, numThreads):
     numThreads = mp.cpu_count()
     q = mp.Queue()
     for i in range(numThreads):
-        min_ = int (i*numIterations / numThreads)
-        max_ = int ( (i+1)*numIterations / numThreads)
+        min_ = int ((i*numIterations) / numThreads)
+        max_ = int ( ((i+1)*numIterations) / numThreads)
         p = mp.Process(target=calculatePi, args=(q, min_, max_))
         p.start()
     
